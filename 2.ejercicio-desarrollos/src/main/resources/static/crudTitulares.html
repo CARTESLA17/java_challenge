@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="titularesCuentasCorrientes">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="./css/estilo.css"/>
+	<title>TITULAR CUENTA CORRIENTE</title>
+</head>
+
+<body ng-controller="ControladorTitularesCuentasCorrientes" ng-init="obtenerTiposDePersona()">	
+	<div class="centrar">		
+		<form class="fondo">
+			<div class="margen">
+				TITULAR CUENTA CORRIENTE
+			</div></br>			
+			<div class="centrar">			
+				<input placeholder="CUIT DEL TITULAR" class="inp" id="buscarCUIT" ng-model="buscarCUIT" type="number" min="1"/>
+			</div></br>
+			<div class="centrar">			
+				<button id="buscarTitular" class="btn" ng-click="obtenerTitularPorCuit()">Buscar Titular</button>		
+			</div></br>
+			<div ng-hide="esconder" ng-model="titular" class="centrar">							
+				<h4>{{titular.nombre!=null?'Nombre: '+titular.nombre+'  -  ':''}}{{titular.apellido!=null?'Apellido: '+titular.apellido:''}}{{titular.razonSocial!=null?'Razón Social: '+titular.razonSocial:''}}</h4>				
+			</div></br>
+			<div class="centrar">
+				<label for="tipoPersona">* Tipo de persona:</label>
+				<select class="inp" ng-change="activarElementosDeLaVista()" id="tipoPersona" ng-model="tipoPersona" ng-options="tipoPersona as tipoPersona.descripcion for tipoPersona in tipoPersonas track by tipoPersona.id">
+				</select>
+			</div></br>
+			<div class="centrar">					
+				<label for="CUIT">* CUIT:</label>
+				<input class="inp" id="CUIT" ng-model="CUIT" type="number" min="1" />
+			</div></br>
+			<div ng-hide="personaFisica" class="centrar">					
+				<label for="nombre">* Nombre:</label>
+				<input class="inp" id="nombre" ng-model="nombre" maxlength="80"/>
+			</div></br>
+			<div ng-hide="personaFisica" class="centrar">					
+				<label for="apellido">* Apellido:</label>
+				<input class="inp" id="apellido" ng-model="apellido" maxlength="250"/>
+			</div></br>				
+			<div ng-hide="personaFisica" class="centrar">					
+				<label for="DNI">* DNI:</label>
+				<input class="inp" id="DNI" ng-model="DNI" type="number" min="1"/>
+			</div></br>
+			<div ng-hide="personaJuridica" class="centrar">					
+				<label for="razonSocial">* Razón Social:</label>
+				<input class="inp" id="razonSocial" ng-model="razonSocial" maxlength="100"/>
+			</div></br>
+			<div ng-hide="personaJuridica" class="centrar">					
+				<label for="year">* Año de fundación:</label>
+				<input class="inp" id="year" ng-model="year" type="number" min="1" max="2019"/>
+			</div></br>				
+			
+			<div class="centrar">						
+				<button id="addBtn" class="btn" ng-click="crearTitular()">Crear Titular</button>
+				<button ng-hide="esconder" id="editarBtn" class="btn" ng-click="actualizarTitular()">Actualizar Titular</button>
+				<button ng-hide="esconder" id="eliminarBtn" class="btn" ng-click="eliminarTitular()">Eliminar Titular</button>
+				<button id="limpiarDatosBtn" class="btn" ng-click="limpiarDatos()">Limpiar Datos</button>
+				<button id="listarTitularesBtn" class="btnRedirect" ng-click="listarTitulares()">Listar Titulares</button>							
+			</div></br>			
+		</form>	
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-resource.js"></script>		
+	<script src="./js/crudTitular.js"></script>
+</body>
+</html>
+
+

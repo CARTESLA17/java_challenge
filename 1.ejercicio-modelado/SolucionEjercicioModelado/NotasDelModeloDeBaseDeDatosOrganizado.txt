@@ -1,0 +1,4 @@
+NOTAS:
+- Se genero una tabla CURSO_X_CARRERA, para que un curso pueda ser inscrito por cualquier carrera.
+- Se genero la tabla TIPO_PERSONA_X_PERSONA, por que una persona que toma un curso en una universidad puede ser alumno, o profesor, o asesor, etc.
+- Se elimina la tabla alumno, alumno seria un TIPO_PERSONA.

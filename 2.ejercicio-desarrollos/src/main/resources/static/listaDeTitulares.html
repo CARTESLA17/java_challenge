@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="listaTitulares">
+
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="./css/estilo.css"/>
+		<title>LISTA DE TITULARES</title>
+	</head>
+
+	<body ng-controller="ControladorListaTitulares" ng-init="obtenerTodosLosTitulares()">	
+		<div class="centrar">		
+			<form class="fondo">
+				<div class="margen">
+					LISTA DE TITULARES DE CUENTAS CORRIENTES
+				</div></br>
+				<div class="separator"></div>
+				<div class="centrar">						
+					<button id="addBtn" class="btn" ng-click="obtenerTodosLosTitulares()">Listar Titulares</button>					
+					<button id="crudTitularesBtn" class="btnRedirect" ng-click="irACRUDDeTitualres()">Edición De Titulares</button>							
+				</div></br>
+				<div class="separator"></div>				
+				<div class="container" ng-show="listaTitulares != null">					
+					<div ng-repeat="titular in listaTitulares">
+						<div class="centrar">
+							{{titular.nombre!=null?'Nombre: '+titular.nombre+'  -  ':''}}{{titular.apellido!=null?'Apellido: '+titular.apellido+'  -  ':''}}{{titular.dni!=null?'DNI: '+titular.dni+'  -  ':''}}{{titular.razonSocial!=null?'Razón Social: '+titular.razonSocial+'  -  ':''}}{{titular.year!=null?'Año de fundación: '+titular.year+'  -  ':''}}{{titular.cuit!=null?'CUIT: '+titular.cuit+'  -  ':''}}Tipo de Persona:{{titular.tipoPersona==1?' Física':' Jurídica'}} 
+						</div>
+						<div class="separatorInterno"></div>
+						<hr>					
+					</div>				
+				</div>
+				<div class="separatorInterno"></div></br>
+			</form>	
+		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-resource.js"></script>		
+		<script src="./js/listaTitulares.js"></script>
+	</body>
+	
+</html>
+
+
+
