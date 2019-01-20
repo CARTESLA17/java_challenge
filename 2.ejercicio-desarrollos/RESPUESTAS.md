@@ -1,6 +1,6 @@
 ## Notas para probar la solucion al ejercicio 1:
    
-   - Se debe contar con acceso a interner para que el front pueda encontrar las librerias de angular.js para que pueda funcionar bien.
+   - Se debe contar con acceso a internet para que el front pueda encontrar las librerias de angular.js para que pueda funcionar bien la aplicacion.
    - Las urls del front end de las funcionalidades del ejercicio 1 son:
    
 		http://localhost:8080/api/crudTitulares.html
